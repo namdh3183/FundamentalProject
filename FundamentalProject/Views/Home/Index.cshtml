@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="container mb-3" style="position:relative">
+        <div class="mb-3">
+            @Html.Action("NewLocaPartial", "Home")
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="container mb-3" style="position:relative">
+        <div class="mb-3">
+            @Html.Action("TrendLocaPartial", "Home")
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="container row col-12 mb-3" style="position:relative">
+        <div class="col-6 mb-3">
+            @Html.Action("TopHotelPartial", "Home")
+        </div>
+        <div class="col-6 mb-3">
+            @Html.Action("InforHotelPartial", "Home")
+        </div>
+    </div>
+</div>
+<br />

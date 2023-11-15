@@ -1,0 +1,46 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "ItemPage";
+    Layout = "~/Views/Shared/_LayoutItem.cshtml";
+}
+<div class="container-fluid px-0">
+    <div class="container-fluid d-flex justify-content-center">
+        <h2>Available Packages</h2>
+    </div>
+</div>
+<div class="container-fluid mt-2 mb-5">
+    <div class="products">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row g-3">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="@item.PICTURES" class="card-img-top">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between"> <span class="font-weight-bold">@item.PACKAGENAME</span> <span class="font-weight-bold">@item.PACKAGEPRICE_PER_PERSON VNĐ</span> </div>
+                                    <p class="card-text mb-1 mt-1">@item.INFORMATION</p>
+                                    <div class="d-flex align-items-center flex-row"><span class="guarantee">@item.PROLONG</span> </div>
+                                </div>
+                                <hr>
+                                <div class="card-body">
+                                    <div class="text-right buttons"><button class="btn btn-dark">BOOK</button> </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    @Html.PagedListPager(
+            (PagedList.IPagedList)Model,
+            page => Url.Action("PackagePage", new { page = page })
+        )
+</div>
